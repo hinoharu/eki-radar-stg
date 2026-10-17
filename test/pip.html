@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>小窓での位置情報の確認</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: "Hiragino Sans", "BIZ UDPGothic", sans-serif; background: #f4f6fa; color: #1c2433; }
+  h1 { font-size: 18px; margin: 0 0 8px; }
+  p { font-size: 14px; line-height: 1.6; margin: 6px 0; }
+  button { font: inherit; font-size: 16px; padding: 10px 14px; margin: 6px 6px 6px 0; border: 1px solid #1f5fa8; border-radius: 8px; background: #fff; color: #1f5fa8; }
+  button.main { background: #1f5fa8; color: #fff; }
+  table { border-collapse: collapse; margin: 10px 0; font-size: 15px; }
+  td { padding: 4px 10px 4px 0; } td.v { font-weight: 700; font-variant-numeric: tabular-nums; }
+  video { width: 240px; height: 135px; background: #000; border-radius: 6px; display: block; margin: 8px 0; }
+  #log { font-size: 12px; white-space: pre-wrap; background: #fff; border: 1px solid #d6dbe4; border-radius: 6px; padding: 8px; max-height: 40vh; overflow: auto; }
+</style>
+</head>
+<body>
+<h1>小窓での位置情報の確認（テスト版だけのページ）</h1>
+<p>1.［位置情報を開始］を押して許可します。2.［小窓で表示］を押します。3. ホーム画面やほかのアプリに切り替えて、1〜2 分待ちます。4. このページに戻り、下の数字を見ます。</p>
+<p>［裏の間に届いた位置］が 0 より大きければ、小窓の間も位置情報が届いています。</p>
+<button class="main" id="geo">位置情報を開始</button><button id="pip">小窓で表示</button>
+<video id="v" muted playsinline autoplay></video>
+<table>
+<tr><td>届いた位置（合計）</td><td class="v" id="nAll">0</td></tr>
+<tr><td>裏の間に届いた位置</td><td class="v" id="nHid">0</td></tr>
+<tr><td>裏の間に動いたタイマー（1 秒ごと）</td><td class="v" id="tHid">0</td></tr>
+<tr><td>最後に位置が届いた時刻</td><td class="v" id="last">—</td></tr>
+<tr><td>小窓</td><td class="v" id="pipSt">未使用</td></tr>
+<tr><td>ブラウザ</td><td class="v" id="ua"></td></tr>
+</table>
+<div id="log"></div>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const t0 = Date.now(), s = { all: 0, hid: 0, tick: 0, last: null, err: "" };
+  const clock = (d) => d ? d.toLocaleTimeString("ja-JP") : "—";
+  const log = (m) => { $("log").textContent = `${clock(new Date())} ${m}\n` + $("log").textContent; };
+  $("ua").textContent = /iPhone|iPad/.test(navigator.userAgent) ? "iOS" : /Android/.test(navigator.userAgent) ? "Android" : "その他";
+  function show() {
+    $("nAll").textContent = s.all; $("nHid").textContent = s.hid; $("tHid").textContent = s.tick; $("last").textContent = clock(s.last);
+  }
+  document.addEventListener("visibilitychange", () => log(`表示の状態: ${document.visibilityState}`));
+  setInterval(() => { if (document.hidden) s.tick++; show(); draw(); }, 1000);
+  $("geo").onclick = () => {
+    if (!navigator.geolocation) { log("位置情報に対応していません"); return; }
+    navigator.geolocation.watchPosition((p) => {
+      s.all++; s.last = new Date(); if (document.hidden) s.hid++;
+      if (document.hidden) log(`裏で位置が届きました（±${Math.round(p.coords.accuracy)} m）`);
+      show(); draw();
+    }, (e) => { s.err = e.message; log(`位置情報の失敗: ${e.code} ${e.message}`); }, { enableHighAccuracy: true, maximumAge: 0 });
+    log("位置情報を開始しました");
+  };
+  const cv = document.createElement("canvas"); cv.width = 480; cv.height = 270;
+  const ctx = cv.getContext("2d");
+  function draw() {
+    ctx.fillStyle = "#1f2b40"; ctx.fillRect(0, 0, 480, 270); ctx.fillStyle = "#fff";
+    ctx.font = "bold 30px sans-serif";
+    ctx.fillText(`位置 ${s.all} 回（裏 ${s.hid}）`, 20, 60);
+    ctx.fillText(`タイマー（裏）${s.tick}`, 20, 115);
+    ctx.font = "26px sans-serif";
+    ctx.fillText(`最後の位置 ${clock(s.last)}`, 20, 170);
+    ctx.fillText(`いま ${clock(new Date())}`, 20, 215);
+    ctx.fillText(document.hidden ? "表示の状態: hidden" : "表示の状態: visible", 20, 255);
+  }
+  draw();
+  const v = $("v");
+  try { v.srcObject = cv.captureStream(2); v.play().catch(() => {}); } catch (e) { log(`動画にできません: ${e.message}`); }
+  $("pip").onclick = () => {
+    if (v.paused) v.play().catch(() => {});
+    try {
+      if (v.webkitSupportsPresentationMode && v.webkitSupportsPresentationMode("picture-in-picture")) {
+        v.webkitSetPresentationMode("picture-in-picture");
+        $("pipSt").textContent = "表示中（Safari の方法）"; log("小窓を開きました（Safari の方法）");
+      } else if (document.pictureInPictureEnabled && v.requestPictureInPicture) {
+        v.requestPictureInPicture().then(() => { $("pipSt").textContent = "表示中"; log("小窓を開きました"); })
+          .catch((e) => { $("pipSt").textContent = "失敗"; log(`小窓を開けません: ${e.name} ${e.message}`); });
+      } else { $("pipSt").textContent = "対応していません"; log("小窓に対応していません"); }
+    } catch (e) { $("pipSt").textContent = "失敗"; log(`小窓を開けません: ${e.name} ${e.message}`); }
+  };
+  document.addEventListener("click", () => { if (v.paused) v.play().catch(() => {}); }, { once: true, capture: true });
+  v.addEventListener("leavepictureinpicture", () => { $("pipSt").textContent = "閉じた"; log("小窓を閉じました"); });
+  v.addEventListener("webkitpresentationmodechanged", () => log(`表示モード: ${v.webkitPresentationMode}`));
+</script>
+</body>
+</html>
