@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>機能紹介｜駅レーダーサイト</title>
+<meta name="description" content="駅レーダーサイトでできることを、主な機能と画面の例で紹介します。">
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDGothic&display=swap">
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<header class="g-head"><div class="in">
+  <a class="g-brand" href="./"><img src="../icons/icon-192.png" alt=""><span>駅レーダーサイト</span></a>
+  <nav class="g-nav" aria-label="説明のページ">
+    <a href="./" aria-current="page">機能紹介</a>
+    <a href="manual.html">使い方</a>
+    <a href="logic.html">計算の仕組み</a>
+    <a href="changes.html">更新履歴</a>
+    <a class="app" href="../">アプリを開く</a>
+  </nav>
+</div></header>
+<main>
+<h1>機能紹介</h1>
+<p class="lead">駅レーダーサイトは、駅メモ！のレーダーと位置登録について、ある場所からアクセスできる駅と、ある駅にアクセスできるエリアを地図に表示するウェブアプリです。駅メモ！の非公式ファンツールで、公式とは関係ありません。</p>
+
+<div class="box">
+  <p><b>目的から探す</b></p>
+  <ul>
+    <li>この駅にアクセスできる場所を知りたい → <a href="manual.html#map-area">エリアの見方</a></li>
+    <li>レーダーの検知数を変えたい → <a href="manual.html#map-radar">レーダーの検知数とアイテム・スキル</a></li>
+    <li>最寄り駅の案内の数字の意味を知りたい → <a href="manual.html#map-distance">距離の数字</a></li>
+    <li>未取得駅を登録したい → <a href="manual.html#ua-start">未取得駅：はじめに</a></li>
+    <li>CSV ファイルを読み込みたい → <a href="manual.html#ua-csv">CSV ファイル</a></li>
+    <li>通知が来ない → <a href="manual.html#notif-trouble">通知が来ないとき</a></li>
+    <li>オフラインで使いたい → <a href="manual.html#offline">オフラインとインストール</a></li>
+    <li>前のバージョンからの変更を知りたい → <a href="changes.html">更新履歴</a></li>
+  </ul>
+</div>
+
+<nav class="toc" aria-label="このページの目次">
+  <b>目次</b>
+  <ol>
+    <li><a href="#features">主な機能</a></li>
+    <li><a href="#screens">画面の例</a></li>
+    <li><a href="#environment">動作環境</a></li>
+    <li><a href="#data">データの扱い</a></li>
+    <li><a href="#notes">注意</a></li>
+  </ol>
+</nav>
+
+<h2 id="features">主な機能</h2>
+<div class="cards">
+  <div class="card">
+    <h3>選んだ駅にアクセスできるエリア</h3>
+    <p>駅を選ぶと、その駅がレーダーの検知対象になるエリアを地図に塗ります。レーダーブースターとなつめのスキルを使った場合のエリアは、色を分けて重ねて表示します（<span class="chip t0"></span>通常時・<span class="chip t1"></span>ブースター・<span class="chip t2"></span>なつめ）。</p>
+    <p><a class="more" href="manual.html#map-select">使い方：駅を選ぶ</a></p>
+  </div>
+  <div class="card">
+    <h3>最寄り駅の案内と順位</h3>
+    <p>現在地または指定位置（長押しで決める仮の現在地）から近い順に、レーダーの検知対象駅を一覧で表示します。設定をオンにすると、地図上の番号でも表示します。オモイダースを使用したときに検知対象になる駅も、区別して表示します。</p>
+    <p><a class="more" href="manual.html#map-near">使い方：最寄り駅の案内</a></p>
+  </div>
+  <div class="card">
+    <h3>隣接駅間の境界線</h3>
+    <p>どの駅に位置登録できるかが切り替わる線を、地図上に表示します（既定ではズームレベル 10 以上）。ズームレベル 13 以上では、線に沿ってその区画の駅名を表示します。</p>
+    <p><a class="more" href="manual.html#map-vor">使い方：境界線</a></p>
+  </div>
+  <div class="card">
+    <h3>複数の駅に共通するエリア</h3>
+    <p>複数選択モードでは、選んだ駅（最大 12 駅）すべてにレーダーでアクセスできるエリアを紫で表示し、面積を示します。共通するエリアがないときは、その旨を表示します。</p>
+    <p><a class="more" href="manual.html#map-group">使い方：複数選択モード</a></p>
+  </div>
+  <div class="card">
+    <h3>通知</h3>
+    <p>現在地または指定位置が変わったときに、最寄り駅の変化、選択駅のエリアへの出入り、未取得駅がレーダーの検知対象になったことなどを通知します。</p>
+    <p><a class="more" href="manual.html#set-notif">使い方：〈通知〉</a></p>
+  </div>
+  <div class="card">
+    <h3>未取得駅の記録</h3>
+    <p>まだアクセスしていない駅を「未取得駅」として記録し、地図上で目立たせることができます。路線ごとの一覧でのチェック、都道府県ごとの一括変更、CSV ファイルの読み込みと書き出しに対応しています。</p>
+    <p><a class="more" href="manual.html#ua">使い方：未取得駅の管理</a>　<a class="more" href="manual.html#ua-csv">CSV の形式</a></p>
+  </div>
+  <div class="card">
+    <h3>レーダーの検知数とアイテム・スキル</h3>
+    <p>［レーダーの検知数（通常時）］と、計算に含めるアイテム・スキル（［レーダー］［ブースター +4］［なつめ +2］）を選ぶと、エリアや順位の表示に反映します。</p>
+    <p><a class="more" href="manual.html#map-radar">使い方：レーダーの検知数</a></p>
+  </div>
+  <div class="card">
+    <h3>コンパクト表示</h3>
+    <p>駅メモ！と画面を分割して表示するときなど、画面の高さが低いときは、ボタンを小さくして数を減らした表示に切り替えます。</p>
+    <p><a class="more" href="manual.html#map-compact">使い方：コンパクト表示</a></p>
+  </div>
+  <div class="card">
+    <h3>オフライン・インストール</h3>
+    <p>一度開いたページは、電波が届かない場所でも使用できます。地理院の地図は、表示した範囲を端末に保存します。対応するブラウザでは、ホーム画面に追加して使用できます。</p>
+    <p><a class="more" href="manual.html#offline">使い方：オフライン・インストール</a></p>
+  </div>
+  <div class="card">
+    <h3>エリアの計算方法</h3>
+    <p>エリアは、駅どうしの垂直二等分線をつないだ多角形として求めています。画面を細かく区切って調べる方法ではありません。</p>
+    <p><a class="more" href="logic.html">計算の仕組み</a></p>
+  </div>
+</div>
+
+<h2 id="screens">画面の例</h2>
+<p class="note">画面の例の未取得駅などの記録と位置は、架空のものです。</p>
+<div class="figs">
+  <figure>
+    <img src="img/f-overview.webp" alt="大阪駅を選択し、アイテム・スキルごとに塗り分けたエリアと、順位の番号を表示した地図" loading="lazy">
+    <figcaption>大阪駅を選択した画面。エリアをアイテム・スキルごとに塗り分け、指定位置（北新地付近）からの順位を番号で表示しています。</figcaption>
+  </figure>
+  <figure>
+    <img src="img/f-near.webp" alt="最寄り駅の案内を開き、順位の一覧を表示した画面" loading="lazy">
+    <figcaption>最寄り駅の案内の一覧（浦和付近の指定位置）。オモイダースを使用したときに検知対象になる駅は、区切りの下に表示します。</figcaption>
+  </figure>
+  <figure>
+    <img src="img/f-vor-tokyo.webp" alt="東京都心の隣接駅間の境界線" loading="lazy">
+    <figcaption>隣接駅間の境界線（東京都心、ズームレベル 12）。</figcaption>
+  </figure>
+  <figure>
+    <img src="img/f-group.webp" alt="3 駅に共通するエリアを紫で表示した地図" loading="lazy">
+    <figcaption>複数選択モードで 3 駅を選び、共通するエリアを紫で表示した画面。</figcaption>
+  </figure>
+  <figure>
+    <img src="img/f-lines.webp" alt="未取得駅の管理の路線ごとの一覧と駅の並び" loading="lazy">
+    <figcaption>未取得駅の管理の［路線ごと］。左に路線の一覧、右に選んだ路線の駅の並びを表示します。</figcaption>
+  </figure>
+  <figure>
+    <img src="img/f-compact.webp" alt="高さの低い画面でのコンパクト表示" loading="lazy">
+    <figcaption>コンパクト表示（画面の高さ 300 px）。最寄り駅の案内の一覧を開いた状態です。</figcaption>
+  </figure>
+</div>
+
+<h2 id="environment">動作環境</h2>
+<ul>
+  <li>スマートフォンと PC のウェブブラウザで動作します。アプリストアからのインストールやアカウントの登録は必要ありません。</li>
+  <li>現在地を利用するには、ブラウザで位置情報の利用を許可してください。</li>
+  <li>設定と未取得駅の記録は、そのブラウザの中に保存されます。別の端末やブラウザには引き継がれません。未取得駅の記録は、CSV ファイルに書き出して移すことができます。</li>
+</ul>
+<p class="note">スマートフォンのブラウザでは、ほかのアプリを前面にしている間、位置情報の更新と通知が止まります。</p>
+
+<h2 id="data">データの扱い</h2>
+<ul>
+  <li>位置情報と未取得駅の情報は、端末の中（ブラウザの保存領域）にのみ保存し、作者を含む外部には送信しません。</li>
+  <li>ブラウザのデータを消去すると、保存した情報は失われます。</li>
+  <li>地図・書体・ライブラリの表示のため、地理院タイル（国土地理院）、OpenStreetMap、OpenRailwayMap、Google Fonts、cdnjs と通信します。これらのサービスには、IP アドレス等が送信されます。〈駅データ更新〉で最新の駅データを取得するときは、GitHub（駅データの配布元）と通信します。地図の画像は、表示している範囲ごとに配信元から読み込むため、配信元には表示している地域が伝わります。</li>
+  <li>駅メモ！のアプリやサーバーとは通信しません。アクセスした駅の記録を自動で読み込むことはなく、未取得駅は利用者が自分で記録します。</li>
+</ul>
+<p class="note">駅データは <a href="https://github.com/Seo-4d696b75/station_database">station_database</a>（CC BY 4.0）を使用しています。</p>
+
+<h2 id="notes">注意</h2>
+<div class="box warn">
+  <p>表示するエリアと順位は推定値です。駅メモ！での実際の判定と一致することは保証しません。ゲーム本体の距離の計算方法は確認していません。</p>
+  <p>歩行中・運転中の操作や、立入禁止の場所・私有地・線路への立ち入りはしないでください。利用条件・免責事項の全文は、アプリの〈このページについて〉と <a href="https://github.com/hinoharu/eki-radar">公開リポジトリの README</a> にあります。</p>
+</div>
+<p>詳しい操作は<a href="manual.html">使い方</a>、エリアの求め方と距離の測り方は<a href="logic.html">計算の仕組み</a>をご覧ください。</p>
+</main>
+<footer class="g-foot"><div class="in">
+  <p>駅レーダーサイトは、駅メモ！（株式会社モバイルファクトリー）の非公式ファンツールです。公式とは関係ありません。</p>
+  <p>駅データ・路線データ：<a href="https://github.com/Seo-4d696b75/station_database">station_database</a>（Seo-4d696b75 氏、<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a>）。路線の線形は簡略化して使用しています。画面の画像の地図：<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>（国土地理院）。</p>
+  <p>利用条件・免責事項は、アプリの〈このページについて〉と <a href="https://github.com/hinoharu/eki-radar">公開リポジトリの README</a> をご覧ください。</p>
+</div></footer>
+</body>
+</html>

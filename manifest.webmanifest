@@ -1,0 +1,32 @@
+{
+  "name": "駅レーダーサイト（テスト版）",
+  "short_name": "駅レーダーβ",
+  "description": "駅メモ！の非公式ファンツール。レーダーが届く範囲を地図に描きます",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "lang": "ja",
+  "background_color": "#fbfaf7",
+  "theme_color": "#1f5fa8",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
