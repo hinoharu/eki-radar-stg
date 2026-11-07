@@ -1,0 +1,733 @@
+{
+ "note": "駅メモの公式データにも extra にもない情報を、このアプリで独自に調べた・計算したもの（第 3 層）。stations：営業中の区間の途中で廃止された駅（ウィキペディアの記事から事実だけを書き写した）。inserts：駅メモの路線の駅の並びに入れる位置（auto は計算、ほかは手作業）。walks：近くの駅どうしの徒歩連絡の組（計算）。各項目の verification は確かさの段階（unverified 未検証・checked 出典で確認・corroborated 独立した複数の出典で一致）",
+ "source": "ウィキペディア日本語版（項目ごとの source）と、駅メモの駅データ（station_database）からの計算",
+ "license": "事実のみを収録（記事の文章は写していない）。計算に使った駅データは CC BY 4.0（station_database）",
+ "built_with": "20260930",
+ "walks_method": "scripts/extra_walks.py：駅を共有しない路線のまとまりを、500 m 以内のいちばん近い駅の組でつなぐ（[駅コード, 駅コード, m]）",
+ "stations": [
+  {
+   "code": "L001",
+   "name": "西仙台ハイランド",
+   "original_name": "西仙台ハイランド",
+   "name_kana": "にしせんだいはいらんど",
+   "line": "仙山線",
+   "company": "東日本旅客鉄道",
+   "prefecture": 4,
+   "address": "宮城県仙台市青葉区作並字棒目木32",
+   "postal_code": null,
+   "open_date": "1987-03-21",
+   "closed_date": "2014-03-15",
+   "lat": 38.304633,
+   "lng": 140.664658,
+   "prev": "熊ケ根",
+   "next": "作並",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/西仙台ハイランド駅",
+   "note": "2003-10から通年休止、2014-03-15に正式廃止。駅名は基本情報欄どおり「西仙台ハイランド」",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L002",
+   "name": "八ツ森",
+   "original_name": "八ツ森",
+   "name_kana": "やつもり",
+   "line": "仙山線",
+   "company": "東日本旅客鉄道",
+   "prefecture": 4,
+   "address": "宮城県仙台市青葉区新川字清水頭",
+   "postal_code": null,
+   "open_date": "1937-11-10",
+   "closed_date": "2014-03-15",
+   "lat": 38.309025,
+   "lng": 140.615053,
+   "prev": "作並",
+   "next": "奥新川",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/八ツ森駅",
+   "note": "2002-12から通年休止、2014-03-15に正式廃止。記事名は「八ツ森駅」",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L003",
+   "name": "矢沢",
+   "original_name": "矢沢",
+   "name_kana": "やさわ",
+   "line": "釜石線",
+   "company": "日本国有鉄道",
+   "prefecture": 3,
+   "address": "岩手県花巻市矢沢",
+   "postal_code": null,
+   "open_date": "1913-10-25",
+   "closed_date": "1985-03-14",
+   "lat": 39.405306,
+   "lng": 141.168556,
+   "prev": "似内",
+   "next": "新花巻",
+   "kind": "無人駅",
+   "source": "https://ja.wikipedia.org/wiki/矢沢駅",
+   "note": "新花巻駅の設置に伴う廃止(実質は移転改称で駅名は異なる)。prev/nextは廃止当時の前後(似内・小山田)ではなく今の隣接で、新花巻は矢沢の東側。基本情報欄の次の駅は小山田",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L004",
+   "name": "プレイピア白浜",
+   "original_name": "プレイピア白浜",
+   "name_kana": "ぷれいぴあしらはま",
+   "line": "八戸線",
+   "company": "東日本旅客鉄道",
+   "prefecture": 2,
+   "address": "青森県八戸市大字鮫町字日蔭沢",
+   "postal_code": null,
+   "open_date": "1986-08-01",
+   "closed_date": "2012-03-17",
+   "lat": 40.524583,
+   "lng": 141.58125,
+   "prev": "鮫",
+   "next": "陸奥白浜",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/プレイピア白浜駅",
+   "note": "1995年以降通年営業休止、2012-03-17に廃止",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L005",
+   "name": "玉川口",
+   "original_name": "玉川口",
+   "name_kana": "たまがわぐち",
+   "line": "米坂線",
+   "company": "東日本旅客鉄道",
+   "prefecture": 6,
+   "address": "山形県西置賜郡小国町大字小渡",
+   "postal_code": null,
+   "open_date": "1936-08-31",
+   "closed_date": "1995-12-01",
+   "lat": 38.071278,
+   "lng": 139.701444,
+   "prev": "小国",
+   "next": "越後金丸",
+   "kind": "無人駅",
+   "source": "https://ja.wikipedia.org/wiki/玉川口駅",
+   "note": "米坂線は2022年の豪雨被害以降、一部区間が運休中(今も営業中の区間か要確認)。次の駅の越後金丸は新潟県",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L006",
+   "name": "一ノ堰六地蔵尊",
+   "original_name": "一ノ堰六地蔵尊",
+   "name_kana": "いちのせきろくじぞうそん",
+   "line": "会津線",
+   "company": "会津鉄道",
+   "prefecture": 7,
+   "address": "福島県会津若松市門田町大字一ノ堰字畑中928",
+   "postal_code": null,
+   "open_date": "2010-08-23",
+   "closed_date": "2013-08-24",
+   "lat": 37.450278,
+   "lng": 139.914139,
+   "prev": "南若松",
+   "next": "門田",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/一ノ堰六地蔵尊駅",
+   "note": "基本情報欄の廃止年月日は「2013年8月24日(最終営業日)」。路線記事には8月25日廃止とも読める記載あり",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L007",
+   "name": "菊水山",
+   "original_name": "菊水山",
+   "name_kana": "きくすいやま",
+   "line": "有馬線",
+   "company": "神戸電鉄",
+   "prefecture": 28,
+   "address": "兵庫県神戸市北区山田町下谷上",
+   "postal_code": null,
+   "open_date": "1940-10-05",
+   "closed_date": "2018-03-23",
+   "lat": 34.700408,
+   "lng": 135.147842,
+   "prev": "鵯越",
+   "next": "鈴蘭台",
+   "kind": null,
+   "source": "https://ja.wikipedia.org/wiki/菊水山駅",
+   "note": "2005-03-26休止、2018-03-23廃止",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L008",
+   "name": "応神御陵前",
+   "original_name": "応神御陵前",
+   "name_kana": "おうじんごりょうまえ",
+   "line": "南大阪線",
+   "company": "近畿日本鉄道",
+   "prefecture": 27,
+   "address": "大阪府藤井寺市沢田",
+   "postal_code": null,
+   "open_date": "1924-06-01",
+   "closed_date": "1974-07-20",
+   "lat": 34.570028,
+   "lng": 135.607139,
+   "prev": "藤井寺",
+   "next": "土師ノ里",
+   "kind": null,
+   "source": "https://ja.wikipedia.org/wiki/応神御陵前駅",
+   "note": "1945-06-01休止、1974-07-20廃止",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L009",
+   "name": "誉田八幡",
+   "original_name": "誉田八幡",
+   "name_kana": "こんだはちまん",
+   "line": "南大阪線",
+   "company": "近畿日本鉄道",
+   "prefecture": 27,
+   "address": "大阪府羽曳野市誉田",
+   "postal_code": null,
+   "open_date": "1911-08-15",
+   "closed_date": "1974-07-20",
+   "lat": 34.556389,
+   "lng": 135.611667,
+   "prev": "道明寺",
+   "next": "古市",
+   "kind": null,
+   "source": "https://ja.wikipedia.org/wiki/誉田八幡駅",
+   "note": "1945-06-01休止、1974-07-20廃止。座標は秒の端数なし（概略）",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L010",
+   "name": "旭ヶ岡",
+   "original_name": "旭ヶ岡",
+   "name_kana": "あさひがおか",
+   "line": "長野線",
+   "company": "近畿日本鉄道",
+   "prefecture": 27,
+   "address": "大阪府富田林市",
+   "postal_code": null,
+   "open_date": "1923-12-28",
+   "closed_date": "1974-07-20",
+   "lat": 34.518333,
+   "lng": 135.606389,
+   "prev": "喜志",
+   "next": "富田林",
+   "kind": null,
+   "source": "https://ja.wikipedia.org/wiki/旭ヶ岡駅",
+   "note": "座標は秒の端数なし（概略）",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L011",
+   "name": "屯鶴峰",
+   "original_name": "屯鶴峰",
+   "name_kana": "どんづるぼう",
+   "line": "南大阪線",
+   "company": "近畿日本鉄道",
+   "prefecture": 29,
+   "address": "奈良県香芝市",
+   "postal_code": null,
+   "open_date": null,
+   "closed_date": "1974-07-20",
+   "lat": null,
+   "lng": null,
+   "prev": "上ノ太子",
+   "next": "二上山",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/屯鶴峰駅",
+   "note": "基本情報欄に座標なし（開業は1937年12月で日は不明）。1945-06-01休止、1974-07-20廃止。上ノ太子-二上山間、穴虫峠付近",
+   "verification": "unverified",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L012",
+   "name": "木津川",
+   "original_name": "木津川",
+   "name_kana": "きづがわ",
+   "line": "京都線",
+   "company": "近畿日本鉄道",
+   "prefecture": 26,
+   "address": "京都府京田辺市田辺田出原",
+   "postal_code": null,
+   "open_date": "1929-07-10",
+   "closed_date": "1974-07-20",
+   "lat": 34.831392,
+   "lng": 135.773875,
+   "prev": "富野荘",
+   "next": "新田辺",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/木津川駅_(京都府)",
+   "note": "奈良電気鉄道の駅として開業。休止・廃止を経て臨時駅で再開、1974-07-20廃止。大阪府の別の「木津川」駅とは別",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L013",
+   "name": "海塚",
+   "original_name": "海塚",
+   "name_kana": "うみづか",
+   "line": "水間線",
+   "company": "水間鉄道",
+   "prefecture": 27,
+   "address": "大阪府貝塚市海塚",
+   "postal_code": null,
+   "open_date": "1925-12-24",
+   "closed_date": "1972-12-25",
+   "lat": 34.443203,
+   "lng": 135.357114,
+   "prev": "貝塚",
+   "next": "貝塚市役所前",
+   "kind": null,
+   "source": "https://ja.wikipedia.org/wiki/海塚駅",
+   "note": "開業時の駅名は貝塚南（1952年改称）",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  },
+  {
+   "code": "L014",
+   "name": "緑化フェア梅小路",
+   "original_name": "緑化フェア梅小路",
+   "name_kana": "りょっかふぇあうめこうじ",
+   "line": "山陰本線（嵯峨野線）",
+   "company": "西日本旅客鉄道",
+   "prefecture": 26,
+   "address": "京都府京都市下京区八条坊門町",
+   "postal_code": null,
+   "open_date": "1994-09-23",
+   "closed_date": "1994-11-20",
+   "lat": 34.985694,
+   "lng": 135.748972,
+   "prev": "京都",
+   "next": "丹波口",
+   "kind": "臨時駅",
+   "source": "https://ja.wikipedia.org/wiki/緑化フェア梅小路駅",
+   "note": "全国都市緑化フェア会場の臨時駅。約2か月の営業。2019年に梅小路京都西駅が近隣に開業",
+   "verification": "checked",
+   "method": "ウィキペディアの記事の基本情報欄を読んで事実を書き写した（2026-10-16）"
+  }
+ ],
+ "inserts": [
+  {
+   "line": 11106,
+   "line_name": "JR根室本線(滝川～富良野)",
+   "next_to": 1110617,
+   "next_to_name": "落合(北海道)",
+   "station": 1110618,
+   "station_name": "新得",
+   "source": "https://ja.wikipedia.org/wiki/根室本線",
+   "method": "手作業：記事の駅の並びで、駅メモの路線の並びにない端の駅の隣を決めた",
+   "verification": "unverified"
+  },
+  {
+   "line": 11224,
+   "line_name": "JR気仙沼線",
+   "next_to": 1122422,
+   "next_to_name": "不動の沢",
+   "station": 1120814,
+   "station_name": "気仙沼",
+   "source": "https://ja.wikipedia.org/wiki/気仙沼線",
+   "method": "手作業：記事の駅の並びで、駅メモの路線の並びにない端の駅の隣を決めた",
+   "verification": "unverified"
+  },
+  {
+   "line": 11208,
+   "line_name": "JR大船渡線(ドラゴンレール大船渡線)",
+   "next_to": 1120840,
+   "next_to_name": "田茂山",
+   "station": 9920801,
+   "station_name": "盛",
+   "source": "https://ja.wikipedia.org/wiki/大船渡線",
+   "method": "手作業：記事の駅の並びで、駅メモの路線の並びにない端の駅の隣を決めた",
+   "verification": "unverified"
+  },
+  {
+   "line": 11217,
+   "between": [
+    1121710,
+    1121712
+   ],
+   "station": "L001",
+   "station_name": "西仙台ハイランド",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/西仙台ハイランド駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 11217,
+   "between": [
+    1121712,
+    1121714
+   ],
+   "station": "L002",
+   "station_name": "八ツ森",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/八ツ森駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 11209,
+   "between": [
+    1120902,
+    100417
+   ],
+   "station": "L003",
+   "station_name": "矢沢",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/矢沢駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 11206,
+   "between": [
+    1120607,
+    1120609
+   ],
+   "station": "L004",
+   "station_name": "プレイピア白浜",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/プレイピア白浜駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 11219,
+   "between": [
+    1121915,
+    1121916
+   ],
+   "station": "L005",
+   "station_name": "玉川口",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/玉川口駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 99216,
+   "between": [
+    9921602,
+    9921603
+   ],
+   "station": "L006",
+   "station_name": "一ノ堰六地蔵尊",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/一ノ堰六地蔵尊駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 99632,
+   "between": [
+    9963204,
+    9963206
+   ],
+   "station": "L007",
+   "station_name": "菊水山",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/菊水山駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 31003,
+   "between": [
+    3100313,
+    3100314
+   ],
+   "station": "L008",
+   "station_name": "応神御陵前",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/応神御陵前駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 31003,
+   "between": [
+    3100315,
+    3100316
+   ],
+   "station": "L009",
+   "station_name": "誉田八幡",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/誉田八幡駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 31022,
+   "between": [
+    3102202,
+    3102203
+   ],
+   "station": "L010",
+   "station_name": "旭ヶ岡",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/旭ヶ岡駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 31025,
+   "between": [
+    3102515,
+    3102516
+   ],
+   "station": "L012",
+   "station_name": "木津川",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/木津川駅_(京都府)",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 99617,
+   "between": [
+    3200124,
+    9961702
+   ],
+   "station": "L013",
+   "station_name": "海塚",
+   "auto": "前後の駅",
+   "source": "https://ja.wikipedia.org/wiki/海塚駅",
+   "method": "scripts/extra_walks.py：前後の駅から計算",
+   "verification": "unverified"
+  },
+  {
+   "line": 11614,
+   "between": [
+    100216,
+    1161416
+   ],
+   "station": "L014",
+   "station_name": "緑化フェア梅小路",
+   "auto": "位置",
+   "source": "https://ja.wikipedia.org/wiki/緑化フェア梅小路駅",
+   "method": "scripts/extra_walks.py：位置から計算",
+   "verification": "unverified"
+  }
+ ],
+ "walks": [
+  [
+   1120256,
+   9920301,
+   32
+  ],
+  [
+   1122903,
+   9931901,
+   38
+  ],
+  [
+   1180209,
+   9980412,
+   40
+  ],
+  [
+   1160708,
+   3101708,
+   43
+  ],
+  [
+   1190340,
+   9992301,
+   44
+  ],
+  [
+   1161407,
+   9960501,
+   52
+  ],
+  [
+   1190540,
+   9991313,
+   62
+  ],
+  [
+   1110915,
+   9910119,
+   75
+  ],
+  [
+   1193003,
+   9992518,
+   79
+  ],
+  [
+   1190212,
+   9990901,
+   80
+  ],
+  [
+   3300115,
+   3300501,
+   80
+  ],
+  [
+   1120437,
+   9920101,
+   87
+  ],
+  [
+   1180706,
+   9980512,
+   87
+  ],
+  [
+   100405,
+   9934401,
+   103
+  ],
+  [
+   1190202,
+   9992801,
+   116
+  ],
+  [
+   1170113,
+   9970201,
+   123
+  ],
+  [
+   100211,
+   9952001,
+   125
+  ],
+  [
+   1161005,
+   9970401,
+   131
+  ],
+  [
+   1141542,
+   9941604,
+   132
+  ],
+  [
+   100913,
+   9941701,
+   134
+  ],
+  [
+   9941401,
+   9942506,
+   144
+  ],
+  [
+   100211,
+   9952101,
+   156
+  ],
+  [
+   1132607,
+   9934501,
+   158
+  ],
+  [
+   1110101,
+   9910517,
+   177
+  ],
+  [
+   3101601,
+   3102601,
+   184
+  ],
+  [
+   1150808,
+   9952901,
+   197
+  ],
+  [
+   100306,
+   9970601,
+   207
+  ],
+  [
+   9940838,
+   9941201,
+   219
+  ],
+  [
+   9980703,
+   9981301,
+   43
+  ],
+  [
+   1141518,
+   9944501,
+   46
+  ],
+  [
+   1161109,
+   9970801,
+   56
+  ],
+  [
+   9940309,
+   9944708,
+   65
+  ],
+  [
+   100905,
+   9944601,
+   69
+  ],
+  [
+   1140402,
+   9945101,
+   95
+  ],
+  [
+   1141113,
+   9953401,
+   127
+  ],
+  [
+   9941319,
+   9943401,
+   170
+  ],
+  [
+   2800509,
+   9934901,
+   233
+  ],
+  [
+   1163950,
+   9966401,
+   266
+  ],
+  [
+   1141120,
+   9953301,
+   270
+  ],
+  [
+   1161642,
+   9972001,
+   324
+  ],
+  [
+   100913,
+   9943901,
+   422
+  ],
+  [
+   2300145,
+   9934601,
+   432
+  ]
+ ]
+}
