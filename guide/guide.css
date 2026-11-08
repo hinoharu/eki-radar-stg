@@ -1,0 +1,114 @@
+:root {
+  --paper: #fbfaf7;
+  --card: #ffffff;
+  --ink: #1d2433;
+  --muted: #687089;
+  --rule: #dcdfe6;
+  --region: #1f5fa8;
+  --tier0: #1f5fa8;   
+  --tier1: #13896a;   
+  --tier2: #d97706;   
+  --station: #c2410c;
+  --ua: #d1267a;
+  --grp: #7c3aed;
+  --font-body: "BIZ UDPGothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", "メイリオ", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", sans-serif;
+  --font-data: "BIZ UDGothic", ui-monospace, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.8; }
+a { color: var(--region); }
+a:hover { text-decoration-thickness: 2px; }
+
+.g-head { position: sticky; top: 0; z-index: 10; background: rgba(251, 250, 247, 0.96); border-bottom: 1px solid var(--rule); backdrop-filter: blur(6px); }
+.g-head .in { max-width: 860px; margin: 0 auto; padding: 8px 16px; display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; }
+.g-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; color: var(--ink); text-decoration: none; letter-spacing: 0.04em; }
+.g-brand img { width: 28px; height: 28px; border-radius: 6px; }
+.g-nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.g-nav a { font-size: 13.5px; padding: 3px 10px; border-radius: 999px; color: var(--ink); text-decoration: none; border: 1px solid transparent; white-space: nowrap; }
+.g-nav a[aria-current="page"] { background: var(--region); color: #fff; }
+.g-nav a.app { border-color: var(--region); color: var(--region); }
+@media (hover: hover) { .g-nav a:not([aria-current]):hover { border-color: var(--rule); background: #fff; } }
+
+main { max-width: 860px; margin: 0 auto; padding: 20px 16px 48px; }
+h1 { font-size: 24px; line-height: 1.4; margin: 12px 0 6px; letter-spacing: 0.04em; }
+.lead { color: var(--muted); margin: 0 0 18px; }
+h2 { font-size: 19px; line-height: 1.4; margin: 40px 0 12px; padding-left: 12px; border-left: 4px solid var(--region); letter-spacing: 0.06em; scroll-margin-top: 64px; }
+h3 { font-size: 16px; line-height: 1.5; margin: 26px 0 8px; letter-spacing: 0.04em; scroll-margin-top: 64px; }
+h4 { font-size: 15px; margin: 18px 0 6px; }
+p { margin: 8px 0; }
+ul, ol { margin: 8px 0; padding-left: 1.5em; }
+li { margin: 3px 0; }
+code, kbd, .mono { font-family: var(--font-data); font-size: 0.92em; }
+small, .note { color: var(--muted); font-size: 13px; }
+
+.toc { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 16px; margin: 16px 0 8px; }
+.toc b { font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+.toc ol { margin: 4px 0 0; padding-left: 1.4em; columns: 2 220px; column-gap: 24px; }
+.toc li { break-inside: avoid; }
+
+.ui { font-weight: 700; }
+
+figure { margin: 14px 0; }
+figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; background: #fff; }
+figure.phone img { width: 300px; }
+figure.wide img { width: 100%; }
+figcaption { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+.figs { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+.figs figure { margin: 0; flex: 0 1 300px; }
+.figs figure img { width: 100%; }
+.side { display: grid; grid-template-columns: 300px 1fr; gap: 18px; align-items: start; margin: 14px 0; }
+.side > figure { margin: 0; }
+@media (max-width: 640px) { .side { grid-template-columns: 1fr; } figure.phone img, .figs figure { width: 100%; max-width: 340px; flex-basis: 100%; } }
+svg.diagram { display: block; max-width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); border-radius: 6px; }
+
+.box { background: #eef3fa; border-left: 3px solid var(--region); border-radius: 0 6px 6px 0; padding: 8px 14px; margin: 12px 0; font-size: 14px; }
+.box.warn { background: #fdf3e7; border-left-color: var(--tier2); }
+
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 14px; background: var(--card); }
+th, td { border: 1px solid var(--rule); padding: 6px 10px; text-align: left; vertical-align: top; }
+th { background: #f3f4f7; font-weight: 700; white-space: nowrap; }
+.tablewrap { overflow-x: auto; }
+
+.chip { display: inline-block; width: 0.9em; height: 0.9em; border-radius: 50%; vertical-align: -0.08em; margin-right: 2px; }
+.chip.t0 { background: var(--tier0); } .chip.t1 { background: var(--tier1); } .chip.t2 { background: var(--tier2); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 14px 0; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; }
+.card h3 { margin: 0 0 6px; font-size: 15.5px; }
+.card p { margin: 0; font-size: 14px; }
+.card a.more { font-size: 13px; }
+
+.ver { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 4px 16px 10px; margin: 14px 0; }
+.ver h2 { border: 0; padding: 0; margin: 12px 0 2px; font-size: 18px; }
+.ver .date { color: var(--muted); font-size: 13px; font-family: var(--font-data); }
+
+.g-foot { border-top: 1px solid var(--rule); color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+.g-foot .in { max-width: 860px; margin: 0 auto; padding: 14px 16px 28px; }
+.g-foot p { margin: 4px 0; }
+.toc ul { margin: 0 0 4px; padding-left: 1.1em; list-style: none; font-size: 13.5px; }
+.toc ul li { margin: 0; }
+.toc ul li::before { content: "・"; color: var(--muted); }
+
+.totop { text-align: right; margin: 18px 0 0; font-size: 13px; }
+.totop a { color: var(--muted); }
+.toc { scroll-margin-top: 64px; }
+
+@media (max-width: 640px) {
+  .g-head .in { flex-wrap: nowrap; gap: 8px; padding: 6px 10px; }
+  .g-brand { display: none; } 
+  .g-nav { margin-left: 0; }
+  .g-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 2px; }
+  .g-nav::-webkit-scrollbar { display: none; }
+  .g-nav a { font-size: 13px; padding: 3px 8px; }
+  main { padding-top: 12px; }
+  h1 { font-size: 21px; }
+  table.set, table.set tbody, table.set tr, table.set td { display: block; width: 100%; }
+  table.set thead { display: none; }
+  table.set { border: 0; background: transparent; }
+  table.set tr { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 6px 10px; margin: 6px 0; }
+  table.set td { border: 0; padding: 1px 0; }
+  table.set td:first-child { font-weight: 700; }
+  table.set td:nth-child(2)::before { content: "既定値："; color: var(--muted); }
+  table.set td:nth-child(2) { font-size: 13.5px; }
+}
